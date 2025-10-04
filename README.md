@@ -3,11 +3,11 @@
 
 1.可进行文件的禁用与启用
 
-2.可对单独文件进行禁用或启用：
+2.可对单独的多个文件进行禁用或启用：
 
- - 禁用：`ALLDISABLE.exe file.file`
+ - 禁用：`ALLDISABLE.exe file1.file file2.file`
 
- - 启用：`ALLDISABLE.exe file.disabled`
+ - 启用：`ALLDISABLE.exe file1.file.disabled file2.file.disabled`
 
 3.设置界面可以调整不禁用的文件后缀（即屏蔽）
 
