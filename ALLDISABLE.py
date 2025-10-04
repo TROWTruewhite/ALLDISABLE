@@ -82,10 +82,16 @@ class AllDisableApp:
     def check_command_line_args(self):
         # 如果有命令行参数，处理文件并退出
         if len(sys.argv) > 1:
-            target_file = Path(sys.argv[1])
-            if target_file.exists() and not target_file.is_dir():
-                self.toggle_file_status(target_file)
-            sys.exit(0)
+            processed_count = 0
+            for arg in sys.argv[1:]:  # 处理所有命令行参数
+                target_file = Path(arg)
+                if target_file.exists() and not target_file.is_dir():
+                    self.toggle_file_status(target_file)
+                    processed_count += 1
+            
+            # 如果处理了文件，则退出程序
+            if processed_count > 0:
+                sys.exit(0)
 
     def toggle_file_status(self, file_path):
         '''切换单个文件的禁用状态'''
@@ -116,7 +122,7 @@ class AllDisableApp:
         ttk.Label(
             abtroot,
             text='''一键禁用工具
-版本：Release 1.0
+版本：Release 1.0.1
 作者：True_white_
 github仓库：https://github.com/TROWTruewhite/ALLDISABLE''',
             font=('微软雅黑', 12)
